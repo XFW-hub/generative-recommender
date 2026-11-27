@@ -61,13 +61,6 @@ pip install -r requirements.txt
 - [ ] Docker 容器化部署
 - [ ] CI/CD 自动化测试
 
-## 数据集
-
-本项目使用 GroupLens 发布的 MovieLens 1M 数据集。
-
-下载地址：https://grouplens.org/datasets/movielens/1m/
-
-原始数据集不包含在本仓库中，请遵循数据集使用许可自行下载。
 
 ## 参考项目
 
@@ -77,6 +70,43 @@ pip install -r requirements.txt
 
 本项目参考上述开源项目的技术思路，并进行独立实现与功能扩展。
 
-## 当前状态
+## 数据准备
 
-项目正在持续开发中，目前处于初始化阶段。
+### 数据集
+
+本项目使用 GroupLens 发布的 MovieLens 1M 数据集。
+
+下载地址：https://grouplens.org/datasets/movielens/1m/
+
+原始数据集不包含在本仓库中，请遵循数据集使用许可自行下载。
+
+### 数据集概况
+
+| 指标 | 数值 |
+|---|---:|
+| 用户数量 | 6,040 |
+| 电影库数量 | 3,883 |
+| 有评分的电影数量 | 3,706 |
+| 评分记录数量 | 1,000,209 |
+| 平均评分 | 3.58 |
+| 交互矩阵稀疏度 | 95.53% |
+
+数据集包含用户信息表、电影信息表和用户评分行为表。
+
+### 数据探索
+
+运行数据探索脚本：
+
+```bash
+python -m scripts.explore_data
+```
+
+生成评分分布、用户活跃度及电影热度长尾分布图：
+
+```bash
+python -m scripts.visualize_data
+```
+
+图表保存在 `outputs/eda/` 目录下。
+
+
